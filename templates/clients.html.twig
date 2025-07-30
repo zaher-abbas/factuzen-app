@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }} Clients
+{% endblock %}
+
+{% block section %}
+    <section class="my-4 container">
+        <h1 class="text-center my-4 bg-dark-subtle">Clients List</h1>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+            {% for client in clients %}
+                <div class="col">
+                    <div class="card p-4 h-100">
+                        <div class="card-body">
+                            <h5 class="cardDetails card-title"><span><i
+                                        class="bi bi-building-fill"></i>
+                                Company:</span> <span>{{ client.getCompanyName }}</span></h5>
+                            <h6 class="cardDetails card-title"><span><i class="bi bi-person-fill"></i>
+                                Contact:</span> <span>{{ client.getContactName }}</span></h6>
+                            <p class="cardDetails card-text"><span><i
+                                        class="bi bi-envelope-at-fill"></i>
+                                Email:</span> <span>{{ client.getEmail }}</span></p>
+                        </div>
+                        <div class="card-footer text-center p-4">
+                            <a href="{{ path('client', {'id': client.getId}) }}" class="btn btn-primary">View Client</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

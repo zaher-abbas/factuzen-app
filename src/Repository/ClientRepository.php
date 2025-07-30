@@ -16,6 +16,18 @@ class ClientRepository extends ServiceEntityRepository
         parent::__construct($registry, Client::class);
     }
 
+    public function findClientsByName(string $name): array
+    {
+        // ‘c’: alias for Client
+        $query = $this->createQueryBuilder('c')
+            ->where('c.companyName LIKE :name')
+            ->setParameter('name', $name . '%')
+            ->orderBy('c.companyName', 'ASC')
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
     //    /**
     //     * @return Client[] Returns an array of Client objects
     //     */

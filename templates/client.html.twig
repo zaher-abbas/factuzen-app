@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }} Client
+{% endblock %}
+
+{% block section %}
+    <section class="container">
+        <div class="card my-4">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-building-fill"></i> Company: {{ client.getCompanyName }}</h5>
+                <h6 class="card-title"><i class="bi bi-person-fill"></i> Contant: {{ client.getContactName }}</h6>
+                <p class="card-text"><i class="bi bi-envelope-at-fill"></i> Email: {{ client.getEmail }}</p>
+                <a href="{{ path('clients') }}" class="btn btn-primary">Return</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
