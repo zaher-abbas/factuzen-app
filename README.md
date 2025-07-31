@@ -5,9 +5,9 @@ FactuZen, une application Symfony conçue pour gérer simplement les clients, de
 
 <h2>Guide d'Installation pour un dev:</h2>
 <ul>
-    <li>Run: composer install</li>
-    <li> Create .env.local file and specify the database url with the name of your desired db</li>
-    <li>Run: symfony console doctrine:database:create</li>
+    <li>Run: <strong>composer install</strong></li>
+    <li> Create  <strong>.env.local</strong> file and specify the database url with the name of your desired db</li>
+    <li>Run:  <strong>symfony console doctrine:database:create</strong></li>
     <li>Make a migration and migrate</li>
-    <li>Lastly if you want you can load fixture data via: symfony console doctrine:fixtures:load</li>
+    <li>Lastly if you want you can load fixture data via:  <strong>symfony console doctrine:fixtures:load</strong></li>
 </ul>
