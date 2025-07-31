@@ -5,7 +5,7 @@
 
 {% block section %}
     <section class="my-4 container">
-        <h1 class="text-center my-4 bg-dark-subtle">Clients List</h1>
+        <h1 class="text-center my-4 p-3 rounded bg-primary-subtle">Clients List</h1>
         <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
             {% for client in clients %}
                 <div class="col">
@@ -14,11 +14,8 @@
                             <h5 class="cardDetails card-title"><span><i
                                         class="bi bi-building-fill"></i>
                                 Company:</span> <span>{{ client.getCompanyName }}</span></h5>
-                            <h6 class="cardDetails card-title"><span><i class="bi bi-person-fill"></i>
+                            <h6 class="cardDetails card-title mt-3"><span><i class="bi bi-person-fill"></i>
                                 Contact:</span> <span>{{ client.getContactName }}</span></h6>
-                            <p class="cardDetails card-text"><span><i
-                                        class="bi bi-envelope-at-fill"></i>
-                                Email:</span> <span>{{ client.getEmail }}</span></p>
                         </div>
                         <div class="card-footer text-center p-4">
                             <a href="{{ path('client', {'id': client.getId}) }}" class="btn btn-primary">View Client</a>
@@ -28,5 +25,5 @@
             {% endfor %}
         </div>
     </section>
-
 {% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block section %}
+    <section class="container my-4">
+    {% if client.invoices %}
+            <table class="table table-striped">
+                <caption class="text-center caption-top">
+                    <h2>Invoices for company {{ client.companyName }}</h2>
+                </caption>
+                <thead>
+                <tr>
+                    <th>
+                        Invoice Reference
+                    </th>
+                    <th>
+                        Issued At
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for invoice in client.invoices %}
+                    <tr>
+                        <td>
+                            {{ invoice.reference }}
+                        </td>
+                        <td>
+                            {{ invoice.issuedAt | date }}
+                        </td>
+                        <td>
+                            {{ invoice.status }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    {% endif %}
+    </section>
+{% endblock %}

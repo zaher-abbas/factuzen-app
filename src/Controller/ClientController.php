@@ -28,7 +28,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/clients/search', name: 'clients-search', methods: ['GET'])]
+    #[Route('/clients/search', name: 'clients-search')]
     public function showClientsByName(ClientRepository $clientRepository, Request $request): Response
     {
         $name = $request->query->get('name');
@@ -38,6 +38,5 @@ class ClientController extends AbstractController
             'searchName' => $name,
         ]);
     }
-
 
 }

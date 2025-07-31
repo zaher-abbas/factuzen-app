@@ -8,9 +8,11 @@
         <div class="card my-4">
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-building-fill"></i> Company: {{ client.getCompanyName }}</h5>
-                <h6 class="card-title"><i class="bi bi-person-fill"></i> Contant: {{ client.getContactName }}</h6>
-                <p class="card-text"><i class="bi bi-envelope-at-fill"></i> Email: {{ client.getEmail }}</p>
-                <a href="{{ path('clients') }}" class="btn btn-primary">Return</a>
+                <h6 class="card-title mt-3"><i class="bi bi-person-fill"></i> Contant: {{ client.getContactName }}</h6>
+                <p class="card-text my-4"><i class="bi bi-envelope-at-fill"></i> Email: <a href="mailto:{{ client.getEmail }}">{{ client.getEmail }}</a> </p>
+                <p class="card-text my-4"><i class="bi bi-telephone-fill"></i> Phone: <a href="tel:{{ client.getPhone }}">{{ client.getPhone }}</a> </p>
+                <a href="{{ path('client_invoices', {'id': client.id}) }}" class="btn btn-success me-2">Show Invoices</a>
+                <a href="{{ path('clients') }}" class="btn btn-danger">Return</a>
             </div>
         </div>
     </section>
