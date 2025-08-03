@@ -6,6 +6,9 @@ use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
 class Client
@@ -15,15 +18,23 @@ class Client
     #[ORM\Column]
     private ?int $id = null;
 
+    #[NotBlank]
+    #[Length(max: 100, maxMessage: 'The company name cannot be longer than {{ limit }} characters')]
     #[ORM\Column(length: 100)]
     private ?string $companyName = null;
 
+    #[NotBlank]
+    #[Length(max: 100, maxMessage: 'The contact name cannot be longer than {{ limit }} characters')]
     #[ORM\Column(length: 100)]
     private ?string $contactName = null;
 
+    #[NotBlank]
+    #[Length(max: 180, maxMessage: 'The email cannot be longer than {{ limit }} characters')]
+    #[Email(message: 'The email "{{ value }}" is not a valid email.')]
     #[ORM\Column(length: 180)]
     private ?string $email = null;
 
+    #[Length(max: 255, maxMessage: 'The phone cannot be longer than {{ limit }} characters')]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
 

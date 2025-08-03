@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}
+{{ parent() }} Create New Client
+{% endblock %}
+{% block section %}
+    <section class="container my-4">
+        <h1 class="mb-3 text-center">Create New Client</h1>
+    {% include "forms/client_form.html.twig"  %}
+    </section>
+{% endblock %}

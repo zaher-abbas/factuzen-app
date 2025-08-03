@@ -26,7 +26,7 @@
                             {{ invoice.reference }}
                         </td>
                         <td>
-                            {{ invoice.issuedAt | date }}
+                            {{ invoice.issuedAt | date('d/m/y') }}
                         </td>
                         <td>
                             {{ invoice.status }}

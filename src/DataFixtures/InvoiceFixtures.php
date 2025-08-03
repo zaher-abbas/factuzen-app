@@ -19,8 +19,8 @@ class InvoiceFixtures extends Fixture
         for ($i = 0; $i < 150; $i++) {
             $invoice = new Invoice();
             $invoice->setReference($faker->bothify('INV-####'))
-                ->setIssuedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-1 year', 'now')))
-                ->setStatus($faker->randomElement(['PAID', 'SENT', 'DRAFT']));
+                    ->setIssuedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-1 year', 'now')))
+                    ->setStatus($faker->randomElement(['PAID', 'SENT', 'DRAFT']));
 
             if ($clients) {
                 $invoice->setClient($faker->randomElement($clients));
