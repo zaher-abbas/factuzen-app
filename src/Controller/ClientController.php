@@ -22,7 +22,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/clients/view/{id}', name: 'client')]
+    #[Route('/clients/{id}', name: 'client', priority: -10)]
     public function showClient(Client $client): Response
     {
         return $this->render('client.html.twig', [
@@ -41,22 +41,21 @@ class ClientController extends AbstractController
         ]);
     }
 
-#[Route('/new', name: 'client_add')]
-public function new(Request $request, EntityManagerInterface $entityManagerInterface): Response
-{
-$client= new Client();
-$form= $this->createForm(ClientType::class, $client);
-$form->handleRequest($request);
-if ($form->isSubmitted() && $form->isValid())
-{
-$entityManagerInterface->persist($client);
-$entityManagerInterface->flush();
-return$this->redirectToRoute('clients');
-}
-return$this->render('newclient.html.twig', [
-    'client'=> $client,
-    'form'=> $form,
-]);
-}
+    #[Route('/new', name: 'client_add')]
+    public function new(Request $request, EntityManagerInterface $entityManagerInterface): Response
+    {
+        $client = new Client();
+        $form = $this->createForm(ClientType::class, $client);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($client);
+            $entityManagerInterface->flush();
+            return $this->redirectToRoute('clients');
+        }
+        return $this->render('newclient.html.twig', [
+            'client' => $client,
+            'form' => $form,
+        ]);
+    }
 
 }
