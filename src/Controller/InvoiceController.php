@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 final class InvoiceController extends AbstractController
 {
 
-    #[Route('clients/view/{id}/invoices', name: 'client_invoices')]
+    #[Route('clients/{id}/invoices', name: 'client_invoices')]
     public function showInvoices(Client $client): Response
     {
         $invoices = $client->getInvoices();

@@ -41,7 +41,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'client_add')]
+    #[Route('/clients/new', name: 'client_add')]
     public function new(Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
         $client = new Client();
