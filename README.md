@@ -112,6 +112,3 @@ Ajoutez un fichier LICENSE si nécessaire et précisez la licence du projet.
 - Ajoutez/actualisez les tests si vous modifiez des fonctionnalités
 - Documentez vos changements dans ce README
 ```
-
-
-Si vous souhaitez, je peux ajouter des exemples de données, un script de fixtures, ou un guide Docker pour l’exécution locale.
